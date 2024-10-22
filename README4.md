@@ -103,7 +103,7 @@ Lanza dous contenedores novos conectados a esa nova rede
 
 Comproba as posibles conexións entre os 4 contenedores
 **docker exec -it contenedor1 sh**
-# bash
+bash
 root@933635f17cf0:/# **ping 172.19.0.1**
 PING 172.19.0.1 (172.19.0.1) 56(84) bytes of data.
 64 bytes from 172.19.0.1: icmp_seq=1 ttl=64 time=1.49 ms
@@ -111,4 +111,30 @@ PING 172.19.0.1 (172.19.0.1) 56(84) bytes of data.
 64 bytes from 172.19.0.1: icmp_seq=3 ttl=64 time=0.113 ms
 
 Cogemos como ejemplo la ip del contenedor3 para hacer la prueba, efectivamente si se hacen ping entre ellos. 
+
+
+Docker compose:
+
+Segue os pasos da guía de iniciación de docker-compose, e explica coas túas palabras os pasos que segues e qué fan
+
+Agora que sabes algo máis de docker-compose, crea un arquivo (ou varios arquivos) de configuración que ó ser lanzados cun docker-compose up, resulten nunha rede docker á que estean conectados 3 contenedores, explica os parámetros do .yaml usado
+
+Busca e proba 4 parámetros e configuracións diferentes que podes incluir no arquivo compose, explica qué fan. (por exemplo diferentes cousas que facer coa opción RUN)
+
+**Version**: Define la versión del formato del archivo Compose que se está utilizando.
+**Servicios**
+Los servicios son los contenedores que formarán parte de la aplicación.
+            -image: Especifica la imagen que se utilizará. En este caso, se usa nginx:alpine, que es una
+            versión ligera de Nginx.
+            -ports: Permite mapear puertos entre el contenedor y la máquina host. Aquí, se expone el
+            puerto 80 del contenedor en el puerto 8080 del host.
+            -networks: Especifica la red a la que se conectara
+            Servicio: db
+            -image: Utiliza la imagen de MySQL en la versión 5.7.
+            -environment: Define las variables de entorno necesarias para configurar el contenedor
+            -networks: Se conecta a la misma red red1 para permitir la comunicación con otros
+            servicios.
+**Redes**
+-Indican las redes a crear
+
 
