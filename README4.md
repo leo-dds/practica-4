@@ -2,7 +2,7 @@ https://github.com/leo-dds/practica-4.git# practica-4
 
 Docker network
 
-Crear unha rede en docker
+0Crear unha rede en docker
  **docker network create mired**
 31f1232969a7efddf6ed476099ddea865d6dba3830e0188fcc18e11e05e3560d
 
