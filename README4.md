@@ -2,15 +2,15 @@ https://github.com/leo-dds/practica-4.git# practica-4
 
 Docker network
 
-0Crear unha rede en docker
+_Crear unha rede en docker_
  **docker network create mired**
 31f1232969a7efddf6ed476099ddea865d6dba3830e0188fcc18e11e05e3560d
 
-Crear dous contenedores unidos a esa rede
+_Crear dous contenedores unidos a esa rede_
 **docker run -d --name contenedor1 --network mired nginx**
 **docker run -d --name contenedor2 --network mired nginx**
 
-Comprobar que os contenedores están na rede
+_Comprobar que os contenedores están na rede_
 **docker network inspect mired**
 "Containers": {
             "7d08f7d36e542606388d80ab414d4b01e528e7875f786fed706c4349ff0e54f8": {
@@ -34,12 +34,12 @@ Comprobar que os contenedores están na rede
 ]
 
 
-Comprobar que os contenedores poden verse entre eles
+_Comprobar que os contenedores poden verse entre eles_
 **docker exec -it contenedor1 sh** entramos en el contenedor mediante sh 
 Escribimos bash para tener una terminal, intalamos el ping con **apt-get install -y iputils-ping**
 Una vez este intalado ping hacemos **ping contenedor2** y si todo esta bien nos contestara al ping.
 
-Listar os contenedores conectados á rede
+_Listar os contenedores conectados á rede_
 **docker ps**
 CONTAINER ID   IMAGE     COMMAND                  CREATED          STATUS          PORTS                                     NAMES
 7d08f7d36e54   nginx     "/docker-entrypoint.…"   55 minutes ago   Up 55 minutes   80/tcp                                    contenedor2
@@ -48,7 +48,7 @@ CONTAINER ID   IMAGE     COMMAND                  CREATED          STATUS       
 b83fdd91778b   httpd     "httpd-foreground"       13 days ago      Up 13 days      0.0.0.0:8080->80/tcp, [::]:8080->80/tcp   asir_httpd
 f9c69f5db224   httpd     "httpd-foreground"       2 weeks ago      Up 2 weeks      0.0.0.0:8000->80/tcp, [::]:8000->80/tcp   asir_web1
 
-Listar as propiedades da rede
+_Listar as propiedades da rede_
  **docker network inspect mired**
 [
     {
@@ -96,12 +96,12 @@ Listar as propiedades da rede
     }
 ]
 
-Crea outra rede
+_Crea outra rede_
 **docker network create red2**
 1bbc9860c8c6f484776eb508e42cd880f7f5e2c66ab6b46dc7fb0fed986f5b00
 Lanza dous contenedores novos conectados a esa nova rede
 
-Comproba as posibles conexións entre os 4 contenedores
+_Comproba as posibles conexións entre os 4 contenedores_
 **docker exec -it contenedor1 sh**
 bash
 root@933635f17cf0:/# **ping 172.19.0.1**
@@ -110,16 +110,15 @@ PING 172.19.0.1 (172.19.0.1) 56(84) bytes of data.
 64 bytes from 172.19.0.1: icmp_seq=2 ttl=64 time=0.120 ms
 64 bytes from 172.19.0.1: icmp_seq=3 ttl=64 time=0.113 ms
 
-Cogemos como ejemplo la ip del contenedor3 para hacer la prueba, efectivamente si se hacen ping entre ellos. 
+Cogemos como ejemplo la ip del contenedor3 para hacer la prueba, efectivamente si se hacen ping entre ellos.
 
+**Docker compose:**
 
-Docker compose:
+_Segue os pasos da guía de iniciación de docker-compose, e explica coas túas palabras os pasos que segues e qué fan_
 
-Segue os pasos da guía de iniciación de docker-compose, e explica coas túas palabras os pasos que segues e qué fan
+_Agora que sabes algo máis de docker-compose, crea un arquivo (ou varios arquivos) de configuración que ó ser lanzados cun docker-compose up, resulten nunha rede docker á que estean conectados 3 contenedores, explica os parámetros do .yaml usado_
 
-Agora que sabes algo máis de docker-compose, crea un arquivo (ou varios arquivos) de configuración que ó ser lanzados cun docker-compose up, resulten nunha rede docker á que estean conectados 3 contenedores, explica os parámetros do .yaml usado
-
-Busca e proba 4 parámetros e configuracións diferentes que podes incluir no arquivo compose, explica qué fan. (por exemplo diferentes cousas que facer coa opción RUN)
+_Busca e proba 4 parámetros e configuracións diferentes que podes incluir no arquivo compose, explica qué fan. (por exemplo diferentes cousas que facer coa opción RUN)_
 
 **Version**: Define la versión del formato del archivo Compose que se está utilizando.
 **Servicios**
